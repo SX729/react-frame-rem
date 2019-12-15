@@ -1,0 +1,116 @@
+@import '~themes/vars.less';
+
+.bonc-mung-layout-top-header {
+  &.ant-layout-header {
+    height: @viewport-header-height;
+    line-height: @viewport-header-height;
+    background: @viewport-sider-menu-background;
+  }
+
+  .bonc-mung-sider-logo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 300px;
+    float: left;
+
+    img {
+      width: 56px;
+      margin-right: 1px;
+    }
+
+    span {
+      vertical-align: text-bottom;
+      font-size: 20px;
+      text-transform: uppercase;
+      display: inline-block;
+      font-weight: 500;
+      color: #DAE6FF;
+      white-space: nowrap;
+      margin-bottom: 0;
+      font-family: 'PingFangSC-Medium', 'PingFang SC Medium', 'PingFang SC';
+    }
+  }
+
+  .bonc-mung-sider-nav {
+    line-height: @viewport-header-height;
+
+    &.ant-menu {
+      background: @viewport-sider-menu-background;
+
+      .ant-menu-item-selected {
+        background-color: @viewport-sider-menu-selected-background;
+      }
+    }
+
+  }
+
+  .menu-header-btn-container {
+    float: right;
+    height: @viewport-header-height;
+    line-height: @viewport-header-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .menu-header-btn {
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      transition: all 0.3s;
+      justify-content: center;
+      vertical-align: middle;
+      padding: 0px 6px;
+      color: rgba(255, 255, 255, 0.65);
+      background: @viewport-sider-menu-background;
+      border: 0px;
+
+      .anticon {
+        font-size: 22px;
+      }
+
+      .anticon-user {
+        margin-right: 1px;
+      }
+
+      &.ant-menu-horizontal {
+        .ant-menu-submenu {
+          border-bottom: 2px solid transparent;
+
+          &.ant-menu-submenu-open {
+            .ant-menu-submenu-title {
+              color: #fafafa !important;
+            }
+          }
+
+          .ant-menu-submenu-title {
+            &:hover {
+              color: #fafafa !important;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        color: #fafafa;
+      }
+
+    }
+
+    .ant-menu-horizontal>.ant-menu-item,
+    .ant-menu-horizontal>.ant-menu-submenu {
+      border-bottom: none;
+    }
+  }
+
+}
+
+.ant-menu-dark .ant-menu-sub {
+  background: @viewport-sider-menu-sub-background  !important;
+  box-shadow: 0 2px 8px fade(@viewport-sider-menu-sub-background, 10%) inset;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: @viewport-sider-menu-selected-background  !important;
+}

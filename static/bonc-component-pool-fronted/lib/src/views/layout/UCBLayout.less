@@ -1,0 +1,21 @@
+@import '~themes/vars.less';
+
+.bonc-mung-ucb-layout {
+  height: 100%;
+  overflow: hidden;
+  .bonc-mung-layout-main {
+    padding-top: 0px;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 8;
+    .bonc-mung-layout-content {
+      padding: 24px;
+      min-height: ~'calc(100vh - 130px)';
+      overflow-y: auto;
+      overflow-x: hidden;
+      .bonc-mung-view-page {
+        height: 79vh;
+      }
+    }
+  }
+}

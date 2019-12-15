@@ -1,0 +1,60 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current",
+          "browsers": [
+            "last 2 versions",
+            "ie >= 10"
+          ]
+        }
+      }
+    ],
+    "@babel/react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": true
+      }
+    ],
+    "@babel/plugin-syntax-dynamic-import",
+    "dynamic-import-webpack",
+    "@babel/plugin-transform-classes",
+    "@babel/plugin-transform-proto-to-assign"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        [
+          "transform-react-remove-prop-types",
+          {
+            "removeImport": true,
+            "ignoreFilenames": [
+              "node_modules"
+            ]
+          }
+        ]
+      ]
+    },
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    }
+  }
+}

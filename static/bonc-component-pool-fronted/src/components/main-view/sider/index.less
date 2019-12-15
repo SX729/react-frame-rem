@@ -1,0 +1,63 @@
+@import '~themes/vars.less';
+
+.bonc-mung-sider {
+  &.ant-layout-sider {
+    background: @viewport-sider-background;
+    z-index: 9;
+  }
+
+  .bonc-mung-sider-brand {
+    height: @viewport-header-height;
+    justify-content: left;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    background: @viewport-sider-background;
+    border-bottom: 1px solid #3d4c61;
+
+    &.center {
+      justify-content: center;
+    }
+
+    .bonc-mung-sider-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 56px;
+        margin-right: 1px;
+      }
+
+      span {
+        vertical-align: text-bottom;
+        font-size: 20px;
+        text-transform: uppercase;
+        display: inline-block;
+        font-weight: 500;
+        color: #DAE6FF;
+        white-space: nowrap;
+        margin-bottom: 0;
+        font-family: 'PingFangSC-Medium', 'PingFang SC Medium', 'PingFang SC';
+      }
+    }
+  }
+
+  .bonc-mung-sider-menuContainer {
+    height: ~'calc(100vh - 72px)';
+    overflow-y: auto;
+
+    .ant-menu {
+      background: @viewport-sider-menu-background;
+
+      .ant-menu-item-selected {
+        background-color: @viewport-sider-menu-selected-background;
+      }
+    }
+
+    .ant-menu-inline.ant-menu-sub {
+      background: @viewport-sider-menu-sub-background;
+      box-shadow: 0 2px 8px fade(@viewport-sider-menu-sub-background, 10%) inset;
+    }
+  }
+}

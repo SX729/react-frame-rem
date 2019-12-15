@@ -1,0 +1,102 @@
+const path = require("path");
+const utils = require("./utils");
+const config = require("../config");
+const marked = require("marked");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const multiHelper = require('./multipage-helper');
+const devMode = process.env.NODE_ENV !== 'production'
+
+function resolve(dir) {
+  return path.join(__dirname, "..", dir);
+}
+
+module.exports = {
+  entry: {
+    ...multiHelper.getEntries()
+  },
+  output: {
+    path: config.build.assetsRoot,
+    filename: "[name].js",
+    publicPath: process.env.NODE_ENV === "production" ?
+      config.build.assetsPublicPath : config.dev.assetsPublicPath
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json"],
+    modules: [resolve("src"), resolve("node_modules")],
+    alias: {
+      '@': resolve("src"),
+      src: resolve("src"),
+      '$assets': resolve("src/assets"),
+      '$components': resolve("src/components"),
+      '$routes': resolve("src/routes"),
+      '$views': resolve("src/views"),
+      '$redux': resolve("src/redux")
+    }
+  },
+  module: {
+    rules: [{
+        test: /\.jsx?$/,
+        loader: "eslint-loader",
+        enforce: "pre",
+        include: [resolve("src"), resolve("test")],
+        options: {
+          formatter: require("eslint-friendly-formatter")
+        }
+      },
+      {
+        test: /\.jsx?$/,
+        loader: "babel-loader",
+        include: [resolve("src"), resolve("test")],
+        options: {
+          cacheDirectory: true
+        }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: "file-loader",
+        query: {
+          publicPath: '../../',
+          limit: 10000,
+          name: utils.assetsPath("img/[name].[hash:7].[ext]")
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: "url-loader",
+        query: {
+          limit: 10000,
+          name: utils.assetsPath("fonts/[name].[hash:7].[ext]")
+        }
+      }, {
+        test: /\.md$/,
+        use: [{
+          loader: "html-loader"
+        }, {
+          loader: "markdown-loader"
+        }]
+      }, {
+        test: /\.css$/,
+        use: [{
+          loader: "css-loader"
+        }]
+      },
+      {
+        // antd 自定义主题
+        test: /\.less$/,
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "less-loader",
+            options: {
+              modifyVars: {
+                "@icon-url": process.env.NODE_ENV === "production" ?
+                  '"/bonc-industry-fronted/static/iconfont/iconfont"' : '"/static/iconfont/iconfont"'
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+};

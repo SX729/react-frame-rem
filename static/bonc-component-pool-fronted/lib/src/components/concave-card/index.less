@@ -1,0 +1,186 @@
+
+.bonc-mung-concave-card {
+  
+  position: relative;
+  width: 200px;
+  height: 300px;
+  background: linear-gradient(-45deg, transparent 10px, #fafafa 0px) bottom right, linear-gradient(135deg, transparent 15px, #fafafa 0px) top left, linear-gradient(45deg, transparent 0px, #fafafa 0px) bottom left, linear-gradient(-135deg,transparent 0px,#fafafa 0) top right;
+  background-size: 90% 90%;
+  background-repeat: no-repeat;
+
+  .body {
+    height: 100%;
+    width: 100%;
+  }
+
+  .concave-card-border {
+    position: absolute;
+    &.left {
+      height: 100%;
+      width: 8px;
+      top: 0px;
+      left: 0px;
+      border-left: 0px solid #0777cd;
+      background: transparent;
+
+      .inner-top {
+        position: absolute;
+        left: 0px;
+        top: 20px;
+        height: calc(~"100% - 60% - 20px");
+        width: 1px;
+        border-left: 1px solid #0777cd;
+      }
+      .inner-bottom {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 1px;
+        height: calc(~"100% - 40% - 70px");
+        border-left: 1px solid #0777cd;
+      }
+    }
+    &.top {
+      border-top: 0px solid #0777cd;
+      height: 8px;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      background: transparent;
+      .inner-left {
+        position: absolute;
+        left: 20px;
+        top: 0px;
+        width: calc(~"100% - 15% - 90px");
+        height: 1px;
+        border-top: 1px solid #0777cd;
+      }
+      .inner-right {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 15%;
+        height: 1px;
+        border-top: 1px solid #0777cd;
+      }
+    }
+    &.right {
+      height: 100%;
+      width: 8px;
+      top: 0px;
+      right: 0px;
+      border-top: 1px solid #0777cd;
+      border-right: 0px solid #0777cd;
+      background: transparent;
+      .inner-top {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        height: 30%;
+        width: 1px;
+        border-right: 1px solid #0777cd;
+      }
+      .inner-bottom {
+        position: absolute;
+        right:  0px;
+        bottom: 14px;
+        width: 1px;
+        height: calc(~"100% - 30% - 64px");
+        border-right: 1px solid #0777cd;
+      }
+    }
+    &.bootom {
+      height: 8px;
+      width: 100%;
+      border-bottom: 0px solid #0777cd;
+      border-left: 1px solid #0777cd;
+      left: 0px;
+      bottom: 0px;
+      background: transparent;
+      .inner-left {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: calc(~"100% - 40% - 70px");
+        height: 1px;
+        border-bottom: 1px solid #0777cd;
+      }
+      .inner-right {
+        position: absolute;
+        right: 14px;
+        bottom: 0px;
+        width: calc(~"100% - 60% - 13px");
+        height: 1px;
+        border-bottom: 1px solid #0777cd;
+      }
+    }
+  }
+  .corner-lt {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 30px;
+    height: 28px;
+    transform: rotatez(45deg);
+    border: 0px;
+    border-left: 1px solid #0777cd;
+    background: transparent;
+  }
+  .corner-rb {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 20px;
+    height: 20px;
+    transform: rotatez(45deg);
+    border: 0px;
+    border-right: 1px solid #0777cd;
+    background: transparent;
+  }
+  .concave-block {
+    display: block;
+    border: 1px solid #0777cd;
+    position: absolute;
+    background: #0c60c9;
+    &.left {
+      width: 5px;
+      height: 70px;
+      top: 40%;
+      left: 0px;
+      border-left: 0px;
+      border-top-right-radius: 15em;
+      border-bottom-right-radius: 15em;
+      background: transparent;
+    }
+    &.top {
+      width: 70px;
+      height: 5px;
+      top: 0px;
+      right: 15%;
+      border-top: 0px;
+      border-bottom-left-radius: 15em;
+      border-bottom-right-radius: 15em;
+      background: transparent;
+    }
+    &.right {
+      width: 5px;
+      height: 50px;
+      top: 30%;
+      right: 0px;
+      border-right: 0px;
+      border-top-left-radius: 15em;
+      border-bottom-left-radius: 15em;
+      background: transparent;
+    }
+    &.bottom {
+      width: 70px;
+      height: 5px;
+      bottom: 0px;
+      right: 40%;
+      border-bottom: 0px;
+      border-top-left-radius: 15em;
+      border-top-right-radius: 15em;
+      background: transparent;
+    }
+  }
+}

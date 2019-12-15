@@ -1,0 +1,120 @@
+@import '~themes/vars.less';
+
+.bonc-mung-layout-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: ~'calc(100% - '@viewport-sider-width~')';
+  height: @viewport-header-height;
+  padding: 0;
+  box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, .05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: @viewport-header-background;
+  transition: width .2s;
+  z-index: 10;
+
+  &.collapsed {
+    width: ~'calc(100% - 80px)';
+  }
+
+  .menu-header-action {
+    cursor: pointer;
+    vertical-align: middle;
+    padding-top: 2px;
+    padding-right: 12px;
+    &:hover {
+      color: rgb(0, 0, 0);
+    }
+
+    .anticon {
+      font-size: 22px;
+    }
+  }
+
+  .menu-fold-btn {
+    font-size: 22px;
+  }
+
+  .bonc-mnug-header-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+
+    .bonc-mnug-header-user-menu {
+      height: @viewport-header-height;
+
+      .ant-menu-item .anticon,
+      .ant-menu-submenu-title .anticon {
+        margin-right: 2px;
+        font-size: 20px;
+      }
+
+      &:hover {
+        background-color: @viewport-trigger-background;
+      }
+    }
+  }
+
+  .ant-menu {
+    border-bottom: none;
+  }
+
+  .ant-menu-submenu {
+    border-bottom: none;
+  }
+
+  .ant-menu-horizontal {
+    line-height: @viewport-header-height;
+  }
+
+  .ant-menu-horizontal>.ant-menu-item-active,
+  .ant-menu-horizontal>.ant-menu-item-open,
+  .ant-menu-horizontal>.ant-menu-item-selected,
+  .ant-menu-horizontal>.ant-menu-item:hover,
+  .ant-menu-horizontal>.ant-menu-submenu-active,
+  .ant-menu-horizontal>.ant-menu-submenu-open,
+  .ant-menu-horizontal>.ant-menu-submenu-selected,
+  .ant-menu-horizontal>.ant-menu-submenu:hover {
+    border-bottom: none;
+  }
+
+  .news-block{
+    position: relative;
+    .news-pop-block{
+      position: absolute;
+      right: 0;
+      top: 77px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      width: 336px;
+      z-index: 100;
+      .ant-tabs-nav-scroll{
+        text-align: center;
+      }
+      .ant-list-item{
+        padding-right: 24px;
+        padding-left: 24px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .bottom{
+        border-top: 1px solid #e8e8e8;
+        height: 46px;
+        line-height: 46px;
+        text-align: center;
+        .clear, .more{
+          display: inline-block;
+          width: 50%;
+          cursor: pointer;
+        }
+        .more{
+          border-left: 1px solid #e8e8e8;
+        }
+      }
+    }
+  }
+
+}
