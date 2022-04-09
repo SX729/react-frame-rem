@@ -49,7 +49,7 @@
     "maven-deploy": "^1.5.0",
     "mock": "^0.1.1",
     "mockjs": "^1.0.1-beta3",
-    "moment": "^2.21.0",
+    "moment": "^2.29.2",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",
     "react": "^16.2.0",
